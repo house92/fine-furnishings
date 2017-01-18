@@ -1,26 +1,6 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .order {
@@ -40,6 +20,7 @@
 
 .jumbotron {
   padding: 0 !important;
+  background: none !important;
   .carousel-inner {
     position: fixed;
     img {
@@ -49,12 +30,12 @@
     }
     .carousel-caption {
       left: -25%;
-      top: 45%;
+      top: 40%;
     }
   }
   .carousel-control,
   .carousel-indicators {
-    margin-top:36%;
+    margin-top: 43%;
     bottom: 0 !important;
     top: 0 !important;
   }
@@ -64,7 +45,7 @@
     left: 10%;
     margin-top: 10%;
   }
-  form {
-    margin: 2rem 0;
+  .well {
+    background: rgba(233, 233, 233, 0.8)
   }
 }

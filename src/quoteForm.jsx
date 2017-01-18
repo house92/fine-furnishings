@@ -7,7 +7,8 @@ export default class QuoteForm extends Component {
     this.state = {
       isPainted: false,
       paint: "Matte",
-      colour: "White"
+      colour: "White",
+      marginTop: "10rem"
     }
     this.onOptionChange = this.onOptionChange.bind(this)
     this.onPaintChange = this.onPaintChange.bind(this)
@@ -16,15 +17,16 @@ export default class QuoteForm extends Component {
 
   onOptionChange(e) {
     var newValue = e.target.value == "true";
-    this.setState({ isPainted: newValue })
+    var newMargin = newValue ? "3rem" : "10rem";
+    this.setState({ isPainted: newValue, marginTop: newMargin });
   }
 
   onPaintChange(e) {
-    this.setState({ paint: e.target.value })
+    this.setState({ paint: e.target.value });
   }
 
   onColourChange(e) {
-    this.setState({ colour: e.target.value })
+    this.setState({ colour: e.target.value });
   }
 
   renderIfPainted() {
@@ -81,7 +83,7 @@ export default class QuoteForm extends Component {
     });
 
     return (
-      <form role="form" className="well">
+      <form role="form" className="well" style={{marginTop: this.state.marginTop}}>
         <FormGroup>
           <ControlLabel>Select desired item:</ControlLabel>
           <FormControl componentClass="select">

@@ -18,7 +18,7 @@ export default class Banner extends Component {
     });
     return (
         <Col md={12} className="no-margin">
-          <Jumbotron>
+          <Jumbotron style={{height: window.innerHeight}}>
             <Carousel pauseOnHover={false}>
               {slidesDiv}
             </Carousel>
