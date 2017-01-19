@@ -1,3 +1,2 @@
-// require( 'babel-polyfill' );
-
-global.HomePage = require( 'components/homePage.jsx' ).default;
+global.HomePage = require('components/homePage.jsx').default;
+global.Register = require('components/register.jsx').default;

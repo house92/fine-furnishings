@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'browserify-rails'
 gem 'react-rails'
+
+gem 'devise'

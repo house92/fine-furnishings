@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, FormGroup, FormControl, ControlLabel, Radio, Button } from 'react-bootstrap';
+import { Row, Col, FormGroup, FormControl, ControlLabel, Radio, Button } from 'react-bootstrap';
 
 export default class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
       isPainted: false,
-      paint: "Matte",
-      colour: "White",
+      paint: this.props.passedProps.paintTypes[0],
+      colour: this.props.passedProps.paintColours[0],
       marginTop: "10rem"
     }
     this.onOptionChange = this.onOptionChange.bind(this)
@@ -31,12 +31,12 @@ export default class QuoteForm extends Component {
 
   renderIfPainted() {
     if (this.state.isPainted) {
-      var paintOptions = ["Matte", "Gloss", "Semi-gloss"];
+      var paintOptions = this.props.passedProps.paintTypes;
       var paintOptionsDiv = paintOptions.map(function (option) {
         return  <option key={option.toLowerCase()} value={option.toLowerCase()} aria-label="paint option">{option}</option>;
       });
 
-      var colours = ["White", "Black", "Green", "Blue", "Red"];
+      var colours = this.props.passedProps.paintColours;
       var coloursDiv = colours.map(function (colour) {
         return  <option key={colour.toLowerCase()} value={colour.toLowerCase()} aria-label="paint colour">{colour}</option>;
       });
@@ -62,17 +62,17 @@ export default class QuoteForm extends Component {
   }
 
   render() {
-    var items = ["Chair", "Table", "Bed", "Cupboard", "Coffee table", "Wardrobe", "Bench"];
+    var items = this.props.passedProps.kindsOfFurniture;
     var itemsDiv = items.map(function (item) {
       return <option aria-label="item of furniture" key={item.toLowerCase().replace(/ /, "_")} value={item.toLowerCase().replace(/ /, "_")}>{item}</option>;
     });
 
-    var sizes = ["Small", "Medium", "Large"];
+    var sizes = this.props.passedProps.sizes;
     var sizesDiv = sizes.map(function (size) {
       return <Radio key={size.toLowerCase()} type="radio" name="size" value={size.toLowerCase()} aria-label="size" defaultChecked={size == "Medium"} inline>{size}</Radio>
     });
 
-    var woods = ["Pine", "Oak", "Mahogany", "Beech", "Maple"];
+    var woods = this.props.passedProps.kindsOfWood;
     var woodsDiv = woods.map(function (wood) {
       return  <option key={wood.toLowerCase()} value={wood.toLowerCase()} aria-label="wood">{wood}</option>;
     });

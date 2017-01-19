@@ -7,7 +7,7 @@ class HomePage extends Component {
   render() {
     return (
       <Layout currentUser={null}>
-        <Banner />
+        <Banner passedProps={this.props}/>
       </Layout>
     );
   }
