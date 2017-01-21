@@ -1,1 +1,1 @@
-<%= react_component 'Register', { authenticityToken: @authenticity_token, deviseErrorMessages: devise_error_messages!, minimalPasswordLength: @minimum_password_length } %>
+<%= react_component 'Register', { currentUser: current_user, deviseErrorMessages: (devise_error_messages!).html_safe, minimalPasswordLength: @minimum_password_length } %>

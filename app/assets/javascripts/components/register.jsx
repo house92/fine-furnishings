@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import _ from 'lodash';
 import Layout from './layout.jsx';
-import Functions from '../../../lib/functions.js';
+import Functions from '../../../../lib/functions.js';
 
 export default class Register extends Component {
   constructor(props) {
@@ -10,8 +10,7 @@ export default class Register extends Component {
     this.state = {
       email: '',
       password: '',
-      password_confirmation: '',
-      name: ''
+      password_confirmation: ''
     };
     this.passwordLengthCheck = this.passwordLengthCheck.bind(this);
     this._handleInputChange = this._handleInputChange.bind(this);
@@ -30,23 +29,22 @@ export default class Register extends Component {
   }
 
   _handleRegistrationClick(e) {
+    e.preventDefault();
     $.ajax({
       method: "POST",
       url: "/users.json",
       data: {
         user: {
           email: this.state.email,
-          uid: this.state.email,
           password: this.state.password,
-          password_confirmation: this.state.password_confirmation,
-          name: this.state.name,
-          provider: "email"
+          password_confirmation: this.state.password_confirmation
         },
         authenticity_token: Functions.getMetaContent("csrf-token")
       }
     })
     .done(function(data){
-      location.reload();
+      console.log(data);
+      // location.reload();
     }.bind(this));
   }
 
@@ -60,27 +58,35 @@ export default class Register extends Component {
     var deviseErrorMessages = this.props.deviseErrorMessages;
     var authenticityToken = this.props.authenticityToken;
     return (
-      <Layout currentUser={null}>
-        <span>{deviseErrorMessages}</span>
-        <form action="/users" method="POST">
-          <FormControl type="hidden" name="authenticity_token" />
+      <Layout currentUser={this.props.currentUser}>
+        <span dangerouslySetInnerHTML={{__html: deviseErrorMessages}}></span>
+        <form>
           <div class="field">
             <ControlLabel htmlFor="user_email">E-mail:</ControlLabel>
-            <FormControl type="email" name="user_email" autoFocus={true} />
+            <FormControl type="email" name='email'
+            placeholder='E-mail'
+            value={this.state.email}
+            onChange={this._handleInputChange} autoFocus={true} />
           </div>
-          
+
           <div class="field">
             <ControlLabel htmlFor="user_password" name="user[password]">Password:</ControlLabel>
-            <FormControl type="password" onChange={this.passwordLengthCheck} autoComplete="off" />
+            <FormControl type="password" name='password'
+            placeholder='Password'
+            value={this.state.password}
+            onChange={this._handleInputChange} autoComplete="off" />
           </div>
 
           <div class="field">
             <ControlLabel htmlFor="user_password_confirmation" name="user[password_confirmation]">Confirm password:</ControlLabel>
-            <FormControl type="password" onChange={this.passwordLengthCheck} autoComplete="off" />
+            <FormControl type="password" name='password_confirmation'
+            placeholder='Re-type password'
+            value={this.state.password_confirmation}
+            onChange={this._handleInputChange} autoComplete="off" />
           </div>
 
           <div class="actions">
-            <Button type="submit" className="btn btn-primary">Sign Up</Button>
+            <Button type="submit" className="btn btn-primary" onClick={this._handleRegistrationClick}>Sign Up</Button>
           </div>
           <span>{this.props.deviseLinks}</span>
         </form>

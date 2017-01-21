@@ -6,7 +6,7 @@ import Banner from './jumbotron.jsx';
 class HomePage extends Component {
   render() {
     return (
-      <Layout currentUser={null}>
+      <Layout currentUser={this.props.currentUser}>
         <Banner passedProps={this.props}/>
       </Layout>
     );

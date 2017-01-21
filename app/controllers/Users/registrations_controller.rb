@@ -5,13 +5,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super
-    @authenticity_token = form_authenticity_token
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
   # def edit
