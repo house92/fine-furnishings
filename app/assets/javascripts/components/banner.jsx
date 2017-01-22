@@ -3,15 +3,18 @@ import { Grid, Row, Jumbotron, Col, Carousel } from 'react-bootstrap';
 import QuoteForm from './quoteForm.jsx';
 
 var style = {
-  landscapeMargin: "10rem",
-  portraitMargin: "14rem"
+  landscapeCollapsedMargin: "10rem",
+  portraitCollapsedMargin: "14rem",
+  landscapeExpandedMargin: "8rem",
+  portraitExpandedMargin: "10rem"
 }
 
 export default class Banner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      defaultMargin: style.landscapeMargin,
+      defaultCollapsedMargin: style.landscapeCollapsedMargin,
+      defaultExpandedMargin: style.landscapeCollapsedMargin,
       living: "living",
       dining: "dining",
       bedroom: "bedroom"
@@ -22,14 +25,16 @@ export default class Banner extends Component {
   handleResize() {
     if (window.innerHeight > window.innerWidth) {
       this.setState({
-        defaultMargin: style.portraitMargin,
+        defaultCollapsedMargin: style.portraitCollapsedMargin,
+        defaultExpandedMargin: style.portraitCollapsedMargin,
         living: "living-portrait",
         dining: "dining-portrait",
         bedroom: "bedroom-portrait"
       });
     } else {
       this.setState({
-        defaultMargin: style.landscapeMargin,
+        defaultCollapsedMargin: style.landscapeCollapsedMargin,
+        defaultExpandedMargin: style.landscapeExpandedMargin,
         living: "living",
         dining: "dining",
         bedroom: "bedroom"
@@ -40,14 +45,16 @@ export default class Banner extends Component {
   componentWillMount() {
     if (window.innerHeight > window.innerWidth) {
       this.setState({
-        defaultMargin: style.portraitMargin,
+        defaultCollapsedMargin: style.portraitCollapsedMargin,
+        defaultExpandedMargin: style.portraitCollapsedMargin,
         living: "living-portrait",
         dining: "dining-portrait",
         bedroom: "bedroom-portrait"
       });
     } else {
       this.setState({
-        defaultMargin: style.landscapeMargin,
+        defaultCollapsedMargin: style.landscapeCollapsedMargin,
+        defaultExpandedMargin: style.landscapeExpandedMargin,
         living: "living",
         dining: "dining",
         bedroom: "bedroom"
@@ -83,7 +90,7 @@ export default class Banner extends Component {
                   <img className="logo" src="/assets/fine_furnishings.png" />
                 </Col>
                 <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={3} mdOffset={2} lg={3} lgOffset={1}>
-                  <QuoteForm passedProps={this.props.passedProps} defaultMargin={this.state.defaultMargin} />
+                  <QuoteForm passedProps={this.props.passedProps} defaultCollapsedMargin={this.state.defaultCollapsedMargin} defaultExpandedMargin={this.state.defaultExpandedMargin} />
                 </Col>
               </Row>
           </Jumbotron>

@@ -47,10 +47,10 @@ body {
     .carousel-caption {
       @media (min-width: 991px) {
         left: -25%;
-        top: 40%;
+        top: 35%;
       }
       @media (max-width: 990px) {
-        top: 12%;
+        top: 15%;
         h3 {
           font-size: 28px;
         }
@@ -65,7 +65,7 @@ body {
   }
   .carousel-control,
   .carousel-indicators {
-    margin-top: 43%;
+    margin-top: 48%;
     bottom: 0 !important;
     top: 0 !important;
     @media (max-width: 990px) {
@@ -84,7 +84,7 @@ body {
     @media (max-width: 990px) {
       width: 60%;
       left: 5%;
-      margin-top: 5%;
+      margin-top: 6%;
     }
   }
   .well {
