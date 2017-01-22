@@ -8,7 +8,7 @@ export default class QuoteForm extends Component {
       isPainted: false,
       paint: this.props.passedProps.paintTypes[0],
       colour: this.props.passedProps.paintColours[0],
-      marginTop: "10rem"
+      marginTop: this.props.defaultMargin
     }
     this.onOptionChange = this.onOptionChange.bind(this)
     this.onPaintChange = this.onPaintChange.bind(this)
@@ -17,7 +17,7 @@ export default class QuoteForm extends Component {
 
   onOptionChange(e) {
     var newValue = e.target.value == "true";
-    var newMargin = newValue ? "3rem" : "10rem";
+    var newMargin = newValue ? this.props.defaultMargin - 7 : this.props.defaultMargin;
     this.setState({ isPainted: newValue, marginTop: newMargin });
   }
 

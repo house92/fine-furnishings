@@ -46,7 +46,7 @@ export default class navbarInstance extends React.Component {
 
   render() {
     return (
-      <Navbar inverse collapseOnSelect>
+      <Navbar fixedTop inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="/">FineFurnishings</a>

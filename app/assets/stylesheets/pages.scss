@@ -3,7 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
+  @media (min-width: 991px) {
+    overflow-y: hidden;
+  }
+  @media (max-width: 990px) {
+
+  }
   & > .notice,
   & > .alert {
     display: none;
@@ -21,8 +26,9 @@ body {
   background-image: linear-gradient(to bottom,#5e3d1b 0,#2F1E13 100%) !important;
 }
 
-.no-margin {
+.no-padding {
   padding: 0 !important;
+  margin-top: 5rem;
 }
 
 .jumbotron {
@@ -54,5 +60,13 @@ body {
   }
   .well {
     background: rgba(233, 233, 233, 0.8)
+  }
+  @media (max-width: 990px) {
+    form {
+      font-size: 26px;
+      input, select {
+        font-size: 20px;
+      }
+    }
   }
 }
