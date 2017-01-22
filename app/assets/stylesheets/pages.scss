@@ -7,7 +7,7 @@ body {
     overflow-y: hidden;
   }
   @media (max-width: 990px) {
-
+    overflow-y: hidden;
   }
   & > .notice,
   & > .alert {
@@ -42,8 +42,22 @@ body {
       opacity: 0.7;
     }
     .carousel-caption {
-      left: -25%;
-      top: 40%;
+      @media (min-width: 991px) {
+        left: -25%;
+        top: 40%;
+      }
+      @media (max-width: 990px) {
+        top: 20%;
+        h3 {
+          font-size: 48px;
+        }
+        p {
+          font: {
+            size: 32px;
+            weight: normal;
+          }
+        }
+      }
     }
   }
   .carousel-control,
@@ -51,12 +65,24 @@ body {
     margin-top: 43%;
     bottom: 0 !important;
     top: 0 !important;
+    @media (max-width: 990px) {
+      & {
+        display: none;
+      }
+    }
   }
   .logo {
-    width: 80%;
     position: relative;
-    left: 10%;
-    margin-top: 10%;
+    @media (min-width: 991px) {
+      width: 80%;
+      left: 10%;
+      margin-top: 10%;
+    }
+    @media (max-width: 990px) {
+      width: 60%;
+      left: 5%;
+      margin-top: 5%;
+    }
   }
   .well {
     background: rgba(233, 233, 233, 0.8)
@@ -64,8 +90,23 @@ body {
   @media (max-width: 990px) {
     form {
       font-size: 26px;
-      input, select {
-        font-size: 20px;
+      .radio-inline {
+        margin-left: 2rem;
+        input {
+          margin-right: 0.5rem;
+        }
+      }
+      input, select, {
+        font-size: 24px;
+        height: 5rem;
+        &[type=radio] {
+          margin-top: -0.7rem;
+          transform: scale(1.5);
+        }
+      }
+      button {
+        height: 8rem;
+        font-size: 32px;
       }
     }
   }

@@ -5,31 +5,57 @@ import QuoteForm from './quoteForm.jsx';
 export default class Banner extends Component {
   constructor(props) {
     super(props);
-    this.state = { defaultMargin: "10rem" };
-    this.isPortrait = this.isPortrait.bind(this);
-    this.onResize = this.onResize.bind(this);
+    this.state = {
+      defaultMargin: "10rem",
+      living: "living",
+      dining: "dining",
+      bedroom: "bedroom"
+    };
+    this.handleResize = this.handleResize.bind(this);
   }
 
-  isPortrait() {
+  handleResize() {
     if (window.innerHeight > window.innerWidth) {
-      // setState({ defaultMargin: "14rem" });
-      return `-portrait`;
+      this.setState({
+        defaultMargin: "24rem",
+        living: "living-portrait",
+        dining: "dining-portrait",
+        bedroom: "bedroom-portrait"
+      });
     } else {
-      // setState({ defaultMargin: "10rem" });
-      return "";
+      this.setState({
+        defaultMargin: "10rem",
+        living: "living",
+        dining: "dining",
+        bedroom: "bedroom"
+      });
     }
   }
 
-  onResize() {
-    this.forceUpdate();
+  componentWillMount() {
+    if (window.innerHeight > window.innerWidth) {
+      this.setState({
+        defaultMargin: "24rem",
+        living: "living-portrait",
+        dining: "dining-portrait",
+        bedroom: "bedroom-portrait"
+      });
+    } else {
+      this.setState({
+        defaultMargin: "10rem",
+        living: "living",
+        dining: "dining",
+        bedroom: "bedroom"
+      });
+    }
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.onResize, false);
+    window.addEventListener('resize', this.handleResize, false);
   }
 
   render() {
-    var slides = [{src: `/assets/living${this.isPortrait()}.png`, label: `Quality`, p: `All our pieces are hand-crafted by master carpenters`}, {src: `/assets/dining${this.isPortrait()}.png`, label: `Style`, p: `We deliver contemporary style with timeless class`}, {src: `/assets/bedroom${this.isPortrait()}.png`, label: `Personality`, p: `Made just for you`}];
+    var slides = [{src: `/assets/${this.state.living}.png`, label: `Quality`, p: `All our pieces are hand-crafted by master carpenters`}, {src: `/assets/${this.state.dining}.png`, label: `Style`, p: `We deliver contemporary style with timeless class`}, {src: `/assets/${this.state.bedroom}.png`, label: `Personality`, p: `Made just for you`}];
     var slidesDiv = slides.map(function (slide) {
       return (
         <Carousel.Item key={`carousel${slides.indexOf(slide)}`}>
