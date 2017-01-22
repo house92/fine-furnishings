@@ -59,3 +59,4 @@ gem 'browserify-rails'
 gem 'react-rails'
 
 gem 'devise'
+gem 'rails_12factor'

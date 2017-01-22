@@ -1,0 +1,141 @@
+/* line 4, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+body {
+  overflow-x: hidden;
+}
+@media (min-width: 991px) {
+  /* line 4, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  body {
+    overflow-y: hidden;
+  }
+}
+/* line 12, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+body > .notice, body > .alert {
+  display: none;
+}
+
+/* line 18, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+.order {
+  width: 100%;
+}
+
+/* line 22, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+.navbar {
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  background-color: #2F1E13 !important;
+  background-image: linear-gradient(to bottom, #5e3d1b 0, #2F1E13 100%) !important;
+}
+
+/* line 29, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+.no-padding {
+  padding: 0 !important;
+  margin-top: 5rem;
+}
+
+/* line 34, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+.jumbotron {
+  padding: 0 !important;
+  background: none !important;
+}
+/* line 40, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+.jumbotron .carousel-inner {
+  position: fixed;
+}
+/* line 42, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+.jumbotron .carousel-inner img {
+  width: 100%;
+  height: 100% !important;
+  opacity: 0.7;
+}
+@media (min-width: 991px) {
+  /* line 47, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron .carousel-inner .carousel-caption {
+    left: -25%;
+    top: 35%;
+  }
+}
+@media (max-width: 990px) {
+  /* line 47, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron .carousel-inner .carousel-caption {
+    top: 15%;
+  }
+  /* line 54, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron .carousel-inner .carousel-caption h3 {
+    font-size: 28px;
+  }
+  /* line 57, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron .carousel-inner .carousel-caption p {
+    font-size: 18px;
+    font-weight: normal;
+  }
+}
+/* line 66, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+.jumbotron .carousel-control,
+.jumbotron .carousel-indicators {
+  margin-top: 48%;
+  bottom: 0 !important;
+  top: 0 !important;
+}
+@media (max-width: 990px) {
+  /* line 72, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron .carousel-control,
+  .jumbotron .carousel-indicators {
+    display: none;
+  }
+}
+/* line 77, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+.jumbotron .logo {
+  position: relative;
+}
+@media (min-width: 991px) {
+  /* line 77, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron .logo {
+    width: 80%;
+    left: 10%;
+    margin-top: 10%;
+  }
+}
+@media (max-width: 990px) {
+  /* line 77, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron .logo {
+    width: 60%;
+    left: 5%;
+    margin-top: 6%;
+  }
+}
+/* line 90, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+.jumbotron .well {
+  background: rgba(233, 233, 233, 0.8);
+}
+@media (max-width: 990px) {
+  /* line 94, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron form {
+    margin-left: 1.5rem;
+  }
+  /* line 106, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron form input[type=radio], .jumbotron form select[type=radio] {
+    margin-top: 0;
+    transform: scale(1.2);
+  }
+  /* line 111, /Users/samhouse/Documents/Coding/bootcamp/week11/fine_furnishings/app/assets/stylesheets/pages.scss */
+  .jumbotron form button {
+    height: 4rem;
+    font-size: 18px;
+  }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
