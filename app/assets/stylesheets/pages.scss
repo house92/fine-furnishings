@@ -7,7 +7,7 @@ body {
     overflow-y: hidden;
   }
   @media (max-width: 990px) {
-    overflow-y: hidden;
+
   }
   & > .notice,
   & > .alert {
@@ -34,6 +34,9 @@ body {
 .jumbotron {
   padding: 0 !important;
   background: none !important;
+  @media (max-width: 990px) {
+
+  }
   .carousel-inner {
     position: fixed;
     img {
@@ -47,13 +50,13 @@ body {
         top: 40%;
       }
       @media (max-width: 990px) {
-        top: 20%;
+        top: 12%;
         h3 {
-          font-size: 48px;
+          font-size: 28px;
         }
         p {
           font: {
-            size: 32px;
+            size: 18px;
             weight: normal;
           }
         }
@@ -89,24 +92,25 @@ body {
   }
   @media (max-width: 990px) {
     form {
-      font-size: 26px;
-      .radio-inline {
-        margin-left: 2rem;
-        input {
-          margin-right: 0.5rem;
-        }
-      }
+      margin-left: 1.5rem;
+      // font-size: 26px;
+      // .radio-inline {
+      //   margin-left: 2rem;
+      //   input {
+      //     margin-right: 0.5rem;
+      //   }
+      // }
       input, select, {
-        font-size: 24px;
-        height: 5rem;
+        // font-size: 24px;
+        // height: 5rem;
         &[type=radio] {
-          margin-top: -0.7rem;
-          transform: scale(1.5);
+          margin-top: 0;
+          transform: scale(1.2);
         }
       }
       button {
-        height: 8rem;
-        font-size: 32px;
+        height: 4rem;
+        font-size: 18px;
       }
     }
   }

@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import { Grid, Row, Jumbotron, Col, Carousel } from 'react-bootstrap';
 import QuoteForm from './quoteForm.jsx';
 
+var style = {
+  landscapeMargin: "10rem",
+  portraitMargin: "14rem"
+}
+
 export default class Banner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      defaultMargin: "10rem",
+      defaultMargin: style.landscapeMargin,
       living: "living",
       dining: "dining",
       bedroom: "bedroom"
@@ -17,14 +22,14 @@ export default class Banner extends Component {
   handleResize() {
     if (window.innerHeight > window.innerWidth) {
       this.setState({
-        defaultMargin: "24rem",
+        defaultMargin: style.portraitMargin,
         living: "living-portrait",
         dining: "dining-portrait",
         bedroom: "bedroom-portrait"
       });
     } else {
       this.setState({
-        defaultMargin: "10rem",
+        defaultMargin: style.landscapeMargin,
         living: "living",
         dining: "dining",
         bedroom: "bedroom"
@@ -35,14 +40,14 @@ export default class Banner extends Component {
   componentWillMount() {
     if (window.innerHeight > window.innerWidth) {
       this.setState({
-        defaultMargin: "24rem",
+        defaultMargin: style.portraitMargin,
         living: "living-portrait",
         dining: "dining-portrait",
         bedroom: "bedroom-portrait"
       });
     } else {
       this.setState({
-        defaultMargin: "10rem",
+        defaultMargin: style.landscapeMargin,
         living: "living",
         dining: "dining",
         bedroom: "bedroom"
@@ -77,7 +82,7 @@ export default class Banner extends Component {
                 <Col  xs={12} sm={12} md={4} mdOffset={1} lg={5} lgOffset={1}>
                   <img className="logo" src="/assets/fine_furnishings.png" />
                 </Col>
-                <Col xs={12} sm={8} smOffset={2} md={3} mdOffset={2} lg={3} lgOffset={1}>
+                <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={3} mdOffset={2} lg={3} lgOffset={1}>
                   <QuoteForm passedProps={this.props.passedProps} defaultMargin={this.state.defaultMargin} />
                 </Col>
               </Row>
