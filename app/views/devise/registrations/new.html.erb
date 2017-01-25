@@ -1,1 +1,3 @@
-<%= react_component 'Register', { currentUser: current_user, deviseErrorMessages: (devise_error_messages!).html_safe, minimalPasswordLength: @minimum_password_length } %>
+<%= stylesheet_link_tag 'users.css' %>
+
+<%= react_component 'Register', { currentUser: current_user, currentUserSocialMedia: User.find_social_media(current_user), deviseErrorMessages: (devise_error_messages!).html_safe, minimalPasswordLength: @minimum_password_length, clientId: ENV["GH_CLIENT_ID"] } %>

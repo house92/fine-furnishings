@@ -15,9 +15,10 @@ export default class navbarInstance extends React.Component {
   }
 
   handleSignOut(e) {
+    e.preventDefault();
     $.ajax({
       url: e.target.href,
-      type: 'delete',
+      type: 'DELETE',
       data: {
         authenticity_token: Functions.getMetaContent("csrf-token")
       }

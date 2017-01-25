@@ -59,4 +59,5 @@ gem 'browserify-rails'
 gem 'react-rails'
 
 gem 'devise'
+gem 'omniauth'
 gem 'rails_12factor'

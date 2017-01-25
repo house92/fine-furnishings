@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'social_media/github'
+
   root to: 'pages#home'
 
   devise_for :users, controllers: {

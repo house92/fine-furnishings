@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
+import { Well, Row, Col, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import _ from 'lodash';
 import Layout from './layout.jsx';
 import Functions from '../../../../lib/functions.js';
@@ -54,42 +54,64 @@ export default class Register extends Component {
     }
   }
 
+  // ifNoGithub() {
+  //   if (this.props.currentUserSocialMedia) {
+  //     console.log(this.props.currentUserSocialMedia);
+  //   }
+  // }
+
   render() {
     var deviseErrorMessages = this.props.deviseErrorMessages;
     var authenticityToken = this.props.authenticityToken;
     return (
       <Layout currentUser={this.props.currentUser}>
-        <span dangerouslySetInnerHTML={{__html: deviseErrorMessages}}></span>
-        <form>
-          <div class="field">
-            <ControlLabel htmlFor="user_email">E-mail:</ControlLabel>
-            <FormControl type="email" name='email'
-            placeholder='E-mail'
-            value={this.state.email}
-            onChange={this._handleInputChange} autoFocus={true} />
-          </div>
+        <Row className="top-row-margin">
+          <Col xs={12} md={6} mdOffset={3} lg={4} lgOffset={4}>
+            <Well bsSize="large">
+              <span dangerouslySetInnerHTML={{__html: deviseErrorMessages}}></span>
+              <form>
+                <div class="field">
+                  <ControlLabel htmlFor="user_email">E-mail:</ControlLabel>
+                  <FormControl type="email" name='email'
+                  placeholder='E-mail'
+                  value={this.state.email}
+                  onChange={this._handleInputChange} autoFocus={true} />
+                </div>
 
-          <div class="field">
-            <ControlLabel htmlFor="user_password" name="user[password]">Password:</ControlLabel>
-            <FormControl type="password" name='password'
-            placeholder='Password'
-            value={this.state.password}
-            onChange={this._handleInputChange} autoComplete="off" />
-          </div>
+                <div class="field">
+                  <ControlLabel htmlFor="user_password" name="user[password]">Password:</ControlLabel>
+                  <FormControl type="password" name='password'
+                  placeholder='Password'
+                  value={this.state.password}
+                  onChange={this._handleInputChange} autoComplete="off" />
+                </div>
 
-          <div class="field">
-            <ControlLabel htmlFor="user_password_confirmation" name="user[password_confirmation]">Confirm password:</ControlLabel>
-            <FormControl type="password" name='password_confirmation'
-            placeholder='Re-type password'
-            value={this.state.password_confirmation}
-            onChange={this._handleInputChange} autoComplete="off" />
-          </div>
+                <div class="field">
+                  <ControlLabel htmlFor="user_password_confirmation" name="user[password_confirmation]">Confirm password:</ControlLabel>
+                  <FormControl type="password" name='password_confirmation'
+                  placeholder='Re-type password'
+                  value={this.state.password_confirmation}
+                  onChange={this._handleInputChange} autoComplete="off" />
+                </div>
 
-          <div class="actions">
-            <Button type="submit" className="btn btn-primary" onClick={this._handleRegistrationClick}>Sign Up</Button>
-          </div>
-          <span>{this.props.deviseLinks}</span>
-        </form>
+                <Col xs={12} md={6} mdOffset={3}>
+                  <div class="actions">
+                    <Button type="submit" className="btn btn-primary" onClick={this._handleRegistrationClick}>Sign Up</Button>
+                  </div>
+                  <span>{this.props.deviseLinks}</span>
+                </Col>
+              </form>
+
+              <Row>
+                <Col xs={12}>
+                  <div class="oAuth">
+                    <a href={`https://github.com/login/oauth/authorize?scope=user:email&client_id=${this.props.clientId}`}>Log on via Github</a>
+                  </div>
+                </Col>
+              </Row>
+            </Well>
+          </Col>
+        </Row>
       </Layout>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
+import { Well, Row, Col, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import _ from 'lodash';
 import Layout from './layout.jsx';
 import Functions from '../../../../lib/functions.js';
@@ -54,24 +54,38 @@ export default class LogIn extends Component {
   render() {
     return (
       <Layout currentUser={this.props.currentUser}>
-        <form>
-          <div class="field">
-            <ControlLabel htmlFor="user_email">E-mail:</ControlLabel>
-            <FormControl type="email" name="email"
-            placeholder="E-mail"
-            value={this.state.email}
-            onChange={this._handleInputChange} autoFocus={true} />
-          </div>
-          <div class="field">
-            <ControlLabel htmlFor="user_password" name="user[password]">Password:</ControlLabel>
-            <FormControl type="password" name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this._handleInputChange} autoComplete="off" />
-          </div>
-          {this.rememberMe()}
-          <Button type="submit" className="btn btn-primary" onClick={this._handleSignInClick}>Log In</Button>
-        </form>
+        <Row className="top-row-margin">
+          <Col xs={12} md={6} mdOffset={3} lg={4} lgOffset={4}>
+            <Well bsSize="large">
+              <form>
+                <div class="field">
+                  <ControlLabel htmlFor="user_email">E-mail:</ControlLabel>
+                  <FormControl type="email" name="email"
+                  placeholder="E-mail"
+                  value={this.state.email}
+                  onChange={this._handleInputChange} autoFocus={true} />
+                </div>
+                <div class="field">
+                  <ControlLabel htmlFor="user_password" name="user[password]">Password:</ControlLabel>
+                  <FormControl type="password" name="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this._handleInputChange} autoComplete="off" />
+                </div>
+                {this.rememberMe()}
+                <Button type="submit" className="btn btn-primary" onClick={this._handleSignInClick}>Log In</Button>
+              </form>
+
+              <Row>
+                <Col xs={12}>
+                  <div class="oAuth">
+                    <a href={`https://github.com/login/oauth/authorize?scope=user:email&client_id=${this.props.clientId}`}>Log on via Github</a>
+                  </div>
+                </Col>
+              </Row>
+            </Well>
+          </Col>
+        </Row>
       </Layout>
     );
   }
